@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        table{
+            margin:auto;
+            margin-top: 100px;
+            width: 600px
+        }
+    </style>
+
+</head>
+<body>
+    <table border="2px">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>FIRST NAME</th>
+                <th>LAST NAME</th>
+                <th>ROLL</th>
+                <th>SUBJECT</th>
+                <th colspan="2">ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in objs %}
+            <tr>
+                <td>{{ i.id  }}</td>
+                <td>{{ i.f_name  }}</td>
+                <td>{{ i.s_name  }}</td>
+                <td>{{ i.roll  }}</td>
+                <td>{{ i.subject  }}</td>
+                <td>
+                    <a href="{% url 'update_url' i.id %}">
+                        <button>UPDATE</button>
+                    </a>
+                </td>
+                <td>
+                    <a href="{% url 'delete_url' i.id %}">
+                        <button>DELETE</button>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
